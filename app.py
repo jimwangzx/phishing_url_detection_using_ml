@@ -34,5 +34,7 @@ def predict():
         return render_template('result.html', prediction=y_predict)
 
 
+
+
 if __name__ == '__main__':
     app.run(debug=True)

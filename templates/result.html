@@ -33,6 +33,8 @@
               <h4 class="mb-3 lead"><b> It is a phishing url! </b></h4>
             {% elif prediction == 'bad' %}
               <h4 class="mb-3 lead"><b>It is a phishing url. </b></h4>
+            {% elif prediction == 2 %}
+            <h4 class="mb-3 lead"><b>Please enter a url </b></h4>
             {% else %}
               <h4 class="mb-3 lead"><b>It is not a phishing url. </b></h4>
             

@@ -29,6 +29,8 @@ def predict():
             y_predict = 1
         elif url == 'www.google.co.in' or url == 'https://www.google.co.in/':
             y_predict = 0
+        elif url == '':
+            y_predict = 2
         else:
             y_predict = phish_model_ls.predict(X_predict)
         return render_template('result.html', prediction=y_predict)

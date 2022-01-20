@@ -10,12 +10,10 @@ Flask
 gunicorn==20.1.0
 Jinja2 
 joblib==1.1.0
-kiwisolver==1.3.2
-MarkupSafe 
+
+
 matplotlib==3.5.1
-mkl-fft==1.3.1
-mkl-random 
-mkl-service==2.4.0
+
 networkx==2.6.3
 nltk==3.6.7
 numexpr 
@@ -25,7 +23,7 @@ pandas
 Pillow==9.0.0
 plotly==5.5.0
 
-pytz==2021.3
+
 regex==2022.1.18
 scikit-learn==1.0.2
 scipy==1.7.3

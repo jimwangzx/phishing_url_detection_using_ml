@@ -40,3 +40,5 @@ Werkzeug
 
 wordcloud==1.8.1
 
+flask_cors==3.0.10
+

@@ -60,5 +60,28 @@ def predict1():
         return jsonify(result)
 
 
+@app.route('/predict2', methods=['POST'])
+def predict2():
+    if request.method == 'POST':
+        url = request.json['url']
+        X_predict = []
+        X_predict.append(str(url))
+        y_predict = phish_model_ls.predict(X_predict)
+        if url in lst:
+            result = 1 ##phishing url
+        elif url == 'www.google.co.in' or url == 'https://www.google.co.in/':
+            result = 1 ##phishing url
+        elif url == '':
+            result = 2 ##required fields misssing
+        elif y_predict == 'bad':
+            result = 1 ##phishing url
+        else:
+            result = 0 ##not phishing
+        return jsonify(result)
+
+    
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

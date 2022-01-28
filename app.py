@@ -5,6 +5,7 @@ import os
 import pandas as pd
 from werkzeug.wrappers import Request
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -92,6 +93,26 @@ def predict2():
             result = 1 ##phishing url
         else:
             result = 0 ##not phishing
+        return jsonify(result)
+
+
+@app.route('/predict3', methods=['POST'])
+def predict3():
+    if request.method == 'POST':
+        url = request.json['url']
+        X_predict = []
+        X_predict.append(str(url))
+        y_predict = phish_model_ls.predict(X_predict)
+        if url in lst:
+            return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  ##phishing url
+        elif url == 'www.google.co.in' or url == 'https://www.google.co.in/':
+            return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  ##phishing url
+        elif url == '':
+            return json.dumps({'error':True}), 200, {'ContentType':'application/json'} ##required fields misssing
+        elif y_predict == 'bad':
+            return json.dumps({'success':True}), 200, {'ContentType':'application/json'}  ##phishing url
+        else:
+            return json.dumps({'error':True}), 200, {'ContentType':'application/json'}  ##not phishing
         return jsonify(result)
 
 

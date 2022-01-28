@@ -48,15 +48,30 @@ def predict1():
         y_predict = phish_model_ls.predict(X_predict)
 
         if url in lst:
-            result = "It is a phishing url"
+            result = {
+                "Response":"It is a phishing url",
+                "Status":"Success"
+                }
         elif url == 'www.google.co.in' or url == 'https://www.google.co.in/':
-            result = "It is  not a phishing url"
+            result = {
+                "Response":"It is not a phishing url",
+                "Status":"Error"
+                }
         elif url == '':
-            result = "Required fields are missing"
+            result = {
+                "Response":"Required fields are missing",
+                "Status":"Error"
+                }
         elif y_predict == 'bad':
-            result = "It is a phishig url"
+            result = {
+                "Response":"It is a phishing url",
+                "Status":"Success"
+                }
         else:
-            result = "It is  not a phishing url"
+            result = {
+                "Response":"It is not a phishing url",
+                "Status":"Error"
+                }
         return jsonify(result)
 
 
@@ -78,9 +93,6 @@ def predict2():
         else:
             result = 0 ##not phishing
         return jsonify(result)
-
-    
-
 
 
 if __name__ == '__main__':

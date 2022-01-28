@@ -42,4 +42,3 @@ wordcloud==1.8.1
 
 flask_cors==3.0.10
 
-json==3.4.0

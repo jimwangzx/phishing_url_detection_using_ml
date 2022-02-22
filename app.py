@@ -44,10 +44,11 @@ def predict():
 def predict1():
     if request.method == 'POST':
         url = request.json['url']
+        print(url)
         X_predict = []
         X_predict.append(str(url))
         y_predict = phish_model_ls.predict(X_predict)
-
+        
         if url in lst:
             result = {
                 "Response":"It is a phishing url",
